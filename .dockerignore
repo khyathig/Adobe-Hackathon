@@ -1,0 +1,15 @@
+# Ignore input/output at build time
+input/
+output/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore system files
+.DS_Store
+.env
+
+# Ignore version control
+.git/
