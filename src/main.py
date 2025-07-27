@@ -12,8 +12,8 @@ import statistics
 import re
 
 # --- Configuration (Matches Docker volume mounts) ---
-INPUT_DIR = "input"
-OUTPUT_DIR = "output"
+INPUT_DIR = "/app/input"
+OUTPUT_DIR = "/app/output"
 # --- End Configuration ---
 
 def get_text_characteristics(text):
@@ -232,11 +232,11 @@ def extract_outline(pdf_path):
 if __name__ == "__main__":
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     processed_count = 0
-    print(f"Starting processing from '{INPUT_DIR}'...")
+    #print(f"Starting processing from '{INPUT_DIR}'...")
     for filename in sorted(os.listdir(INPUT_DIR)):
         if filename.lower().endswith(".pdf"):
             pdf_path = os.path.join(INPUT_DIR, filename)
-            print(f"Processing: {filename}")
+            #print(f"Processing: {filename}")
             try:
                 output_data = extract_outline(pdf_path)
                 output_filename = os.path.splitext(filename)[0] + ".json"
@@ -248,4 +248,4 @@ if __name__ == "__main__":
             except Exception as e:
                 print(f"  -> ERROR processing {filename}: {e}")
 
-    print(f"\nFinished processing {processed_count} PDF file(s).")
+    #print(f"\nFinished processing {processed_count} PDF file(s).")
